@@ -1,0 +1,27 @@
+.expense-form {
+    width: 300px;
+    margin: auto;
+    text-align: left;
+}
+.expense-form label {
+    display: block;
+    margin-top: 10px;
+}
+.expense-form input,
+.expense-form select,
+.expense-form button {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+}
+.expense-form button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.expense-form button:hover {
+    background-color: #0056b3;
+}

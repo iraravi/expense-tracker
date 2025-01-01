@@ -1,0 +1,63 @@
+<div class="container mt-4">
+  <h2 class="text-center text-primary mb-4">Manage Cards</h2>
+
+  <!-- Form to Add/Edit Card -->
+  <form (ngSubmit)="editMode ? updateCard() : addCard()" class="mb-4">
+    <div class="mb-3">
+      <label for="cardName" class="form-label">Card Name:</label>
+      <input
+        [(ngModel)]="card.cardName"
+        name="name"
+        id="cardName"
+        class="form-control"
+        type="text"
+        placeholder="Enter Card Name"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="cardHolderName" class="form-label">Holder Name:</label>
+      <input
+        [(ngModel)]="card.holderName"
+        name="holderName"
+        id="cardHolderName"
+        class="form-control"
+        type="text"
+        placeholder="Enter Card Holder Name"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">
+      {{ editMode ? 'Update' : 'Add' }} Card
+    </button>
+  </form>
+
+  <!-- Table to View Cards -->
+  <table class="table table-striped table-responsive">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Card Name</th>
+      <th>Holder Name</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let card of cards; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ card.cardName }}</td>
+      <td>{{ card.holderName }}</td>
+      <td>
+        <button (click)="editCard(card)" class="btn btn-sm btn-warning me-2">
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button (click)="deleteCard(card.id)" class="btn btn-sm btn-danger">
+          <i class="bi bi-trash"></i>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
